@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Portal - Sign In</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body class="bg-gray-100">
+
+
+<!-- Navbar -->
+<nav class="bg-blue-600">
+
+    <div class="max-w-6xl mx-auto px-4">
+
+        <div class="flex justify-between items-center h-16">
+
+            <a href="index.html" class="text-white text-xl font-bold">
+                Student Portal
+            </a>
+
+            <div class="hidden md:flex space-x-6">
+
+                <a href="index.html" class="text-white">Home</a>
+                <a href="about.html" class="text-white">About</a>
+                <a href="contact.html" class="text-white">Contact</a>
+                <a href="signup.html" class="text-white">Sign Up</a>
+                <a href="signin.html" class="text-white">Sign In</a>
+
+            </div>
+
+            <button id="menuBtn" class="md:hidden text-white text-2xl">
+                ☰
+            </button>
+
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden pb-4">
+
+            <a href="index.html" class="block text-white py-2">Home</a>
+            <a href="about.html" class="block text-white py-2">About</a>
+            <a href="contact.html" class="block text-white py-2">Contact</a>
+            <a href="signup.html" class="block text-white py-2">Sign Up</a>
+            <a href="signin.html" class="block text-white py-2">Sign In</a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Sign In -->
+<main class="min-h-screen flex items-center justify-center px-4 py-12">
+
+    <div class="w-full max-w-md bg-white rounded-lg shadow p-7">
+
+
+        <!-- Flowbite Component 1: Avatar -->
+        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full
+                    flex items-center justify-center mx-auto text-2xl font-bold">
+            S
+        </div>
+
+
+        <h1 class="text-3xl font-bold text-center mt-5">
+            Sign In
+        </h1>
+
+        <p class="text-center text-gray-600 mt-2">
+            Sign in to your account.
+        </p>
+
+
+        <form id="signinForm" class="mt-7 space-y-5">
+
+
+            <!-- Flowbite Component 2: Email Input -->
+            <div>
+
+                <label
+                    for="email"
+                    class="block mb-2 text-sm font-medium"
+                >
+                    Email
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    required
+                    class="bg-gray-50 border border-gray-300 rounded-lg
+                           block w-full p-3 focus:ring-blue-500"
+                    placeholder="name@example.com"
+                >
+
+            </div>
+
+
+            <!-- Flowbite Component 3: Password -->
+            <div>
+
+                <label
+                    for="password"
+                    class="block mb-2 text-sm font-medium"
+                >
+                    Password
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    minlength="8"
+                    required
+                    class="bg-gray-50 border border-gray-300 rounded-lg
+                           block w-full p-3 focus:ring-blue-500"
+                    placeholder="••••••••"
+                >
+
+            </div>
+
+
+            <!-- Flowbite Component 4: Checkbox -->
+            <div class="flex items-center justify-between">
+
+                <label class="flex items-center gap-2 text-sm">
+
+                    <input
+                        type="checkbox"
+                        class="w-4 h-4 text-blue-600 rounded"
+                    >
+
+                    Remember me
+
+                </label>
+
+
+                <a
+                    href="#"
+                    class="text-sm text-blue-600 hover:underline"
+                >
+                    Forgot Password?
+                </a>
+
+            </div>
+
+
+            <!-- Flowbite Component 5: Button -->
+            <button
+                type="submit"
+                class="w-full text-white bg-blue-600 hover:bg-blue-700
+                       focus:ring-4 focus:ring-blue-300
+                       font-medium rounded-lg text-sm px-5 py-3"
+            >
+                Sign In
+            </button>
+
+
+            <!-- Alert -->
+            <div
+                id="loginMessage"
+                class="hidden p-4 text-sm text-green-800 rounded-lg bg-green-50"
+            >
+                Sign-in form validated successfully.
+            </div>
+
+
+            <p class="text-center text-sm text-gray-600">
+
+                Don't have an account?
+
+                <a
+                    href="signup.html"
+                    class="text-blue-600 font-semibold hover:underline"
+                >
+                    Sign up.
+                </a>
+
+            </p>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white">
+
+    <div class="max-w-6xl mx-auto px-4 py-8 text-center">
+
+        <p class="text-gray-400">
+            © 2026 Student Portal. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+document.getElementById("menuBtn").addEventListener("click", function () {
+
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+
+});
+
+
+document.getElementById("signinForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    document.getElementById("loginMessage").classList.remove("hidden");
+
+});
+
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js"></script>
+
+</body>
+</html>

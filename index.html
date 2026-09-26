@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Portal - Home</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -14,7 +13,6 @@
 <nav class="bg-blue-600">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between items-center h-16">
-
             <a href="index.html" class="text-white text-xl font-bold">
                 Student Portal
             </a>
@@ -27,9 +25,7 @@
                 <a href="signin.html" class="text-white hover:text-gray-200">Sign In</a>
             </div>
 
-            <button id="menuBtn" class="md:hidden text-white text-2xl">
-                ☰
-            </button>
+            <button id="menuBtn" class="md:hidden text-white text-2xl">☰</button>
         </div>
 
         <div id="mobileMenu" class="hidden md:hidden pb-4">
@@ -42,24 +38,22 @@
     </div>
 </nav>
 
-
 <!-- Hero Section -->
 <section class="bg-white">
     <div class="max-w-6xl mx-auto px-4 py-20 text-center">
-
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900">
             Welcome to Student Portal
         </h1>
 
         <p class="mt-5 text-lg text-gray-600 max-w-2xl mx-auto">
-            A simple website created using Tailwind CSS components.
-            Explore our services, learn more about us and get in touch.
+            A simple student portal for exploring courses, learning resources
+            and managing academic information.
         </p>
 
         <div class="mt-7 space-x-2">
-            <a href="signup.html"
+            <a href="#courses"
                class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-                Get Started
+                Explore Courses
             </a>
 
             <a href="about.html"
@@ -67,20 +61,14 @@
                 Learn More
             </a>
         </div>
-
     </div>
 </section>
 
-
 <!-- Component 1: Features -->
 <section class="max-w-6xl mx-auto px-4 py-12">
-
-    <h2 class="text-3xl font-bold text-center">
-        Our Features
-    </h2>
+    <h2 class="text-3xl font-bold text-center">Our Features</h2>
 
     <div class="grid md:grid-cols-3 gap-6 mt-8">
-
         <div class="bg-white p-6 rounded-lg shadow">
             <h3 class="text-xl font-semibold">Easy to Use</h3>
             <p class="mt-3 text-gray-600">
@@ -101,16 +89,12 @@
                 Quickly move between different pages using the navigation bar.
             </p>
         </div>
-
     </div>
 </section>
 
-
 <!-- Component 2: Statistics -->
 <section class="bg-blue-600 text-white py-12">
-
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 text-center gap-8">
-
         <div>
             <h3 class="text-4xl font-bold">500+</h3>
             <p class="mt-2">Students</p>
@@ -125,20 +109,132 @@
             <h3 class="text-4xl font-bold">20+</h3>
             <p class="mt-2">Teachers</p>
         </div>
-
     </div>
 </section>
 
+<!-- CRUD / Array of Objects Section -->
+<section id="courses" class="max-w-6xl mx-auto px-4 py-12">
 
-<!-- Component 3: Services -->
+    <div class="text-center">
+        <h2 class="text-3xl font-bold">Course Management</h2>
+        <p class="mt-2 text-gray-600">
+            Courses are stored as JavaScript objects and managed using the DOM.
+        </p>
+    </div>
+
+    <!-- Add Object Form -->
+    <div class="bg-white rounded-lg shadow p-6 mt-8">
+        <h3 class="text-xl font-semibold">Add New Course</h3>
+
+        <form id="courseForm" class="grid md:grid-cols-4 gap-4 mt-5">
+            <input id="courseName" type="text" required
+                   placeholder="Course name"
+                   class="border border-gray-300 rounded-lg px-4 py-3">
+
+            <select id="courseCategory" required
+                    class="border border-gray-300 rounded-lg px-4 py-3">
+                <option value="">Select category</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Programming">Programming</option>
+                <option value="Database">Database</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Networking">Networking</option>
+            </select>
+
+            <select id="courseStatus" required
+                    class="border border-gray-300 rounded-lg px-4 py-3">
+                <option value="">Select status</option>
+                <option value="Available">Available</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <button type="submit"
+                    class="bg-blue-600 text-white rounded-lg px-4 py-3 hover:bg-blue-700">
+                Add Course
+            </button>
+        </form>
+
+        <p id="formMessage" class="mt-3 text-sm"></p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="bg-white rounded-lg shadow p-6 mt-6">
+        <h3 class="text-xl font-semibold">Search and Filter Courses</h3>
+
+        <input id="searchInput" type="text"
+               placeholder="Search by course name..."
+               class="w-full border border-gray-300 rounded-lg px-4 py-3 mt-4">
+
+        <div class="flex flex-wrap gap-2 mt-4">
+            <button class="filterBtn bg-blue-600 text-white px-4 py-2 rounded-lg" data-filter="All">
+                All
+            </button>
+            <button class="filterBtn bg-gray-200 px-4 py-2 rounded-lg" data-filter="Web Development">
+                Web Development
+            </button>
+            <button class="filterBtn bg-gray-200 px-4 py-2 rounded-lg" data-filter="Programming">
+                Programming
+            </button>
+            <button class="filterBtn bg-gray-200 px-4 py-2 rounded-lg" data-filter="Database">
+                Database
+            </button>
+            <button class="filterBtn bg-gray-200 px-4 py-2 rounded-lg" data-filter="Artificial Intelligence">
+                AI
+            </button>
+            <button class="filterBtn bg-gray-200 px-4 py-2 rounded-lg" data-filter="Networking">
+                Networking
+            </button>
+        </div>
+
+        <p id="resultCount" class="text-sm text-gray-500 mt-4"></p>
+    </div>
+
+    <!-- Cards generated with Array.map() -->
+    <div id="courseCards" class="grid md:grid-cols-3 gap-6 mt-8"></div>
+</section>
+
+<!-- If Else Section -->
 <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-3xl font-bold text-center">Course Status Check</h2>
+        <p class="text-center text-gray-600 mt-2">
+            JavaScript if-else conditions are used to process course information.
+        </p>
 
-    <h2 class="text-3xl font-bold text-center">
-        What We Provide
-    </h2>
+        <div id="conditionResults" class="grid md:grid-cols-2 gap-4 mt-6"></div>
+    </div>
+</section>
+
+<!-- For Loop Section -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-3xl font-bold text-center">Learning Resources</h2>
+        <p class="text-center text-gray-600 mt-2">
+            These items are displayed using a JavaScript for loop.
+        </p>
+
+        <div id="forLoopResults" class="grid md:grid-cols-3 gap-4 mt-6"></div>
+    </div>
+</section>
+
+<!-- While Loop Section -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="text-3xl font-bold text-center">Course Processing</h2>
+        <p class="text-center text-gray-600 mt-2">
+            A while loop processes the course records and displays the results.
+        </p>
+
+        <div id="whileLoopResults" class="mt-6"></div>
+    </div>
+</section>
+
+<!-- Existing Services -->
+<section class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center">What We Provide</h2>
 
     <div class="grid md:grid-cols-3 gap-6 mt-8">
-
         <div class="bg-white border p-6 rounded-lg">
             <h3 class="font-semibold text-xl">Online Learning</h3>
             <p class="text-gray-600 mt-2">
@@ -159,192 +255,129 @@
                 Find useful educational resources in one place.
             </p>
         </div>
-
     </div>
 </section>
 
-
-<!-- Component 4: Cards -->
-<section class="max-w-6xl mx-auto px-4 py-12">
-
-    <h2 class="text-3xl font-bold">
-        Popular Courses
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-6 mt-6">
-
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-            <div class="bg-gray-200 h-32 flex items-center justify-center">
-                <span class="text-gray-500">Course Image</span>
-            </div>
-
-            <div class="p-5">
-                <h3 class="font-bold text-xl">Web Development</h3>
-                <p class="text-gray-600 mt-2">
-                    Learn HTML, CSS and JavaScript.
-                </p>
-                <a href="#" class="text-blue-600 mt-3 inline-block">
-                    Read More →
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-            <div class="bg-gray-200 h-32 flex items-center justify-center">
-                <span class="text-gray-500">Course Image</span>
-            </div>
-
-            <div class="p-5">
-                <h3 class="font-bold text-xl">Programming</h3>
-                <p class="text-gray-600 mt-2">
-                    Improve your programming skills.
-                </p>
-                <a href="#" class="text-blue-600 mt-3 inline-block">
-                    Read More →
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-            <div class="bg-gray-200 h-32 flex items-center justify-center">
-                <span class="text-gray-500">Course Image</span>
-            </div>
-
-            <div class="p-5">
-                <h3 class="font-bold text-xl">Database</h3>
-                <p class="text-gray-600 mt-2">
-                    Learn the basics of database management.
-                </p>
-                <a href="#" class="text-blue-600 mt-3 inline-block">
-                    Read More →
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- Component 5: Testimonial -->
+<!-- Testimonial -->
 <section class="bg-white py-12">
-
     <div class="max-w-3xl mx-auto px-4 text-center">
-
-        <h2 class="text-3xl font-bold">
-            Student Feedback
-        </h2>
+        <h2 class="text-3xl font-bold">Student Feedback</h2>
 
         <p class="mt-6 text-lg text-gray-600">
-            "The website is easy to navigate and I can quickly find
-            the information I need."
+            "The website is easy to navigate and I can quickly find the information I need."
         </p>
 
-        <p class="mt-4 font-semibold">
-            — Student
-        </p>
-
+        <p class="mt-4 font-semibold">— Student</p>
     </div>
-
 </section>
 
-
-<!-- Component 6: FAQ -->
+<!-- FAQ -->
 <section class="max-w-4xl mx-auto px-4 py-12">
-
-    <h2 class="text-3xl font-bold text-center">
-        Frequently Asked Questions
-    </h2>
+    <h2 class="text-3xl font-bold text-center">Frequently Asked Questions</h2>
 
     <div class="mt-8 space-y-3">
-
         <details class="bg-white border rounded-lg p-5">
-            <summary class="font-semibold cursor-pointer">
-                Is the website responsive?
-            </summary>
-
+            <summary class="font-semibold cursor-pointer">Is the website responsive?</summary>
             <p class="mt-3 text-gray-600">
                 Yes, it works on mobile, tablet and desktop devices.
             </p>
         </details>
 
         <details class="bg-white border rounded-lg p-5">
-            <summary class="font-semibold cursor-pointer">
-                How can I contact you?
-            </summary>
-
+            <summary class="font-semibold cursor-pointer">How can I contact you?</summary>
             <p class="mt-3 text-gray-600">
                 You can use the Contact page to send us a message.
             </p>
         </details>
 
         <details class="bg-white border rounded-lg p-5">
-            <summary class="font-semibold cursor-pointer">
-                Can I create an account?
-            </summary>
-
+            <summary class="font-semibold cursor-pointer">Can I create an account?</summary>
             <p class="mt-3 text-gray-600">
                 Yes, use the Sign Up page.
             </p>
         </details>
-
     </div>
 </section>
 
-
-<!-- Component 7: CTA -->
+<!-- CTA -->
 <section class="max-w-6xl mx-auto px-4 py-12">
-
     <div class="bg-blue-50 rounded-lg p-10 text-center">
-
-        <h2 class="text-3xl font-bold">
-            Ready to get started?
-        </h2>
-
-        <p class="text-gray-600 mt-3">
-            Create your account today.
-        </p>
+        <h2 class="text-3xl font-bold">Ready to get started?</h2>
+        <p class="text-gray-600 mt-3">Create your account today.</p>
 
         <a href="signup.html"
            class="inline-block mt-5 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
             Sign Up
         </a>
-
     </div>
-
 </section>
 
-
-<!-- Component 8: Newsletter -->
+<!-- Newsletter -->
 <section class="bg-white border-t">
-
     <div class="max-w-6xl mx-auto px-4 py-10 text-center">
+        <h2 class="text-2xl font-bold">Subscribe to our newsletter</h2>
 
-        <h2 class="text-2xl font-bold">
-            Subscribe to our newsletter
-        </h2>
+        <form id="newsletterForm" class="flex max-w-md mx-auto mt-5">
+            <input id="newsletterEmail" type="email" required
+                   placeholder="Email address"
+                   class="flex-1 border border-gray-300 rounded-l-lg px-4 py-3">
 
-        <form class="flex max-w-md mx-auto mt-5">
-            <input
-                type="email"
-                required
-                placeholder="Email address"
-                class="flex-1 border border-gray-300 rounded-l-lg px-4 py-3"
-            >
-
-            <button
-                class="bg-blue-600 text-white px-5 rounded-r-lg hover:bg-blue-700">
+            <button class="bg-blue-600 text-white px-5 rounded-r-lg hover:bg-blue-700">
                 Subscribe
             </button>
         </form>
 
+        <p id="newsletterMessage" class="text-sm text-gray-600 mt-3"></p>
     </div>
-
 </section>
 
+<!-- Edit Modal -->
+<div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6">
+        <h2 class="text-2xl font-bold">Edit Course</h2>
+
+        <form id="editForm" class="mt-5">
+            <input id="editId" type="hidden">
+
+            <label class="block font-medium">Course Name</label>
+            <input id="editName" type="text" required
+                   class="w-full border border-gray-300 rounded-lg px-4 py-3 mt-2">
+
+            <label class="block font-medium mt-4">Category</label>
+            <select id="editCategory" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 mt-2">
+                <option value="Web Development">Web Development</option>
+                <option value="Programming">Programming</option>
+                <option value="Database">Database</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Networking">Networking</option>
+            </select>
+
+            <label class="block font-medium mt-4">Status</label>
+            <select id="editStatus" required
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 mt-2">
+                <option value="Available">Available</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <div class="flex justify-end gap-2 mt-6">
+                <button type="button" id="cancelEdit"
+                        class="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-100">
+                    Cancel
+                </button>
+
+                <button type="submit"
+                        class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
+                    Update
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer class="bg-gray-800 text-white mt-10">
-
     <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
 
         <div>
@@ -356,7 +389,6 @@
 
         <div>
             <h3 class="font-semibold">Quick Links</h3>
-
             <div class="mt-3 space-y-2">
                 <a href="index.html" class="block text-gray-400 hover:text-white">Home</a>
                 <a href="about.html" class="block text-gray-400 hover:text-white">About</a>
@@ -366,7 +398,6 @@
 
         <div>
             <h3 class="font-semibold">Account</h3>
-
             <div class="mt-3 space-y-2">
                 <a href="signup.html" class="block text-gray-400 hover:text-white">Sign Up</a>
                 <a href="signin.html" class="block text-gray-400 hover:text-white">Sign In</a>
@@ -378,14 +409,366 @@
     <div class="border-t border-gray-700 text-center py-5 text-gray-400">
         © 2026 Student Portal. All rights reserved.
     </div>
-
 </footer>
 
-
 <script>
-    document.getElementById("menuBtn").addEventListener("click", function () {
+    // Array of objects
+    let courses = [
+        {
+            id: 1,
+            name: "Web Development",
+            category: "Web Development",
+            status: "Available",
+            image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+            id: 2,
+            name: "C++ Programming",
+            category: "Programming",
+            status: "Ongoing",
+            image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+            id: 3,
+            name: "Database Systems",
+            category: "Database",
+            status: "Completed",
+            image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+            id: 4,
+            name: "Artificial Intelligence",
+            category: "Artificial Intelligence",
+            status: "Ongoing",
+            image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+            id: 5,
+            name: "Computer Networks",
+            category: "Networking",
+            status: "Available",
+            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+            id: 6,
+            name: "JavaScript Fundamentals",
+            category: "Web Development",
+            status: "Available",
+            image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=900&q=80"
+        }
+    ];
+
+    let currentFilter = "All";
+
+    // Return a message using multiple if-else conditions
+    function getStatusMessage(status) {
+        if (status === "Available") {
+            return "This course is currently available for students.";
+        } else if (status === "Ongoing") {
+            return "This course is currently being studied.";
+        } else if (status === "Completed") {
+            return "This course has already been completed.";
+        } else if (status === "Upcoming") {
+            return "This course will be available soon.";
+        } else if (status === "Cancelled") {
+            return "This course is currently cancelled.";
+        } else {
+            return "Course status is not available.";
+        }
+    }
+
+    // Select an image for newly added courses
+    function getCategoryImage(category) {
+        if (category === "Web Development") {
+            return "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80";
+        } else if (category === "Programming") {
+            return "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80";
+        } else if (category === "Database") {
+            return "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=900&q=80";
+        } else if (category === "Artificial Intelligence") {
+            return "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80";
+        } else {
+            return "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80";
+        }
+    }
+
+    // Display objects using Array.map()
+    function displayCourses() {
+        const cards = document.getElementById("courseCards");
+        const searchText = document.getElementById("searchInput").value.toLowerCase();
+
+        const filteredCourses = courses.filter(function(course) {
+            const matchesCategory =
+                currentFilter === "All" || course.category === currentFilter;
+
+            const matchesSearch =
+                course.name.toLowerCase().includes(searchText);
+
+            return matchesCategory && matchesSearch;
+        });
+
+        document.getElementById("resultCount").textContent =
+            filteredCourses.length + " course(s) found";
+
+        if (filteredCourses.length === 0) {
+            cards.innerHTML = `
+                <div class="md:col-span-3 bg-white rounded-lg shadow p-8 text-center">
+                    <p class="text-gray-500">No courses found.</p>
+                </div>
+            `;
+            return;
+        }
+
+        cards.innerHTML = filteredCourses.map(function(course) {
+            return `
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div class="h-40 overflow-hidden">
+                        <img src="${course.image}"
+                             alt="${course.name}"
+                             class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl">${course.name}</h3>
+
+                        <p class="text-gray-600 mt-2">
+                            Category: ${course.category}
+                        </p>
+
+                        <p class="text-gray-600 mt-1">
+                            Status: ${course.status}
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            ${getStatusMessage(course.status)}
+                        </p>
+
+                        <div class="flex gap-2 mt-5">
+                            <button onclick="openEditModal(${course.id})"
+                                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                Edit
+                            </button>
+
+                            <button onclick="deleteCourse(${course.id})"
+                                    class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join("");
+    }
+
+    // Add new object using push()
+    document.getElementById("courseForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const newCourse = {
+            id: Date.now(),
+            name: document.getElementById("courseName").value,
+            category: document.getElementById("courseCategory").value,
+            status: document.getElementById("courseStatus").value,
+            image: getCategoryImage(document.getElementById("courseCategory").value)
+        };
+
+        courses.push(newCourse);
+
+        document.getElementById("courseForm").reset();
+        document.getElementById("formMessage").textContent =
+            "Course added successfully.";
+
+        displayCourses();
+        displayConditionResults();
+        displayWhileLoop();
+    });
+
+    // Delete using filter()
+    function deleteCourse(id) {
+        courses = courses.filter(function(course) {
+            return course.id !== id;
+        });
+
+        displayCourses();
+        displayConditionResults();
+        displayWhileLoop();
+    }
+
+    // Open edit modal
+    function openEditModal(id) {
+        const course = courses.find(function(item) {
+            return item.id === id;
+        });
+
+        if (course) {
+            document.getElementById("editId").value = course.id;
+            document.getElementById("editName").value = course.name;
+            document.getElementById("editCategory").value = course.category;
+            document.getElementById("editStatus").value = course.status;
+            document.getElementById("editModal").classList.remove("hidden");
+        }
+    }
+
+    // Update object
+    document.getElementById("editForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const id = Number(document.getElementById("editId").value);
+
+        const course = courses.find(function(item) {
+            return item.id === id;
+        });
+
+        if (course) {
+            course.name = document.getElementById("editName").value;
+            course.category = document.getElementById("editCategory").value;
+            course.status = document.getElementById("editStatus").value;
+        }
+
+        document.getElementById("editModal").classList.add("hidden");
+
+        displayCourses();
+        displayConditionResults();
+        displayWhileLoop();
+    });
+
+    // Cancel edit
+    document.getElementById("cancelEdit").addEventListener("click", function() {
+        document.getElementById("editModal").classList.add("hidden");
+    });
+
+    // Search
+    document.getElementById("searchInput").addEventListener("input", function() {
+        displayCourses();
+    });
+
+    // Five search filters
+    document.querySelectorAll(".filterBtn").forEach(function(button) {
+        button.addEventListener("click", function() {
+            currentFilter = button.dataset.filter;
+
+            document.querySelectorAll(".filterBtn").forEach(function(btn) {
+                btn.classList.remove("bg-blue-600", "text-white");
+                btn.classList.add("bg-gray-200");
+            });
+
+            button.classList.remove("bg-gray-200");
+            button.classList.add("bg-blue-600", "text-white");
+
+            displayCourses();
+        });
+    });
+
+    // If-else output
+    function displayConditionResults() {
+        const results = document.getElementById("conditionResults");
+
+        results.innerHTML = courses.map(function(course) {
+            let message;
+
+            if (course.category === "Web Development") {
+                message = "Focus: Website development.";
+            } else if (course.category === "Programming") {
+                message = "Focus: Programming skills.";
+            } else if (course.category === "Database") {
+                message = "Focus: Data management.";
+            } else if (course.category === "Artificial Intelligence") {
+                message = "Focus: Intelligent systems.";
+            } else {
+                message = "Focus: Computer networking.";
+            }
+
+            return `
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold">${course.name}</h3>
+                    <p class="text-gray-600 mt-1">${message}</p>
+                </div>
+            `;
+        }).join("");
+    }
+
+    // For loop output
+    function displayForLoop() {
+        const resources = [
+            "HTML and CSS",
+            "JavaScript",
+            "Database Management",
+            "Programming Practice",
+            "Networking Basics"
+        ];
+
+        let output = "";
+
+        for (let i = 0; i < resources.length; i++) {
+            output += `
+                <div class="border rounded-lg p-4">
+                    <h3 class="font-semibold">Resource ${i + 1}</h3>
+                    <p class="text-gray-600 mt-2">${resources[i]}</p>
+                </div>
+            `;
+        }
+
+        document.getElementById("forLoopResults").innerHTML = output;
+    }
+
+    // While loop output
+    function displayWhileLoop() {
+        let index = 0;
+        let completed = 0;
+        let ongoing = 0;
+        let available = 0;
+
+        while (index < courses.length) {
+            if (courses[index].status === "Completed") {
+                completed++;
+            } else if (courses[index].status === "Ongoing") {
+                ongoing++;
+            } else {
+                available++;
+            }
+
+            index++;
+        }
+
+        document.getElementById("whileLoopResults").innerHTML = `
+            <div class="grid md:grid-cols-3 gap-4 text-center">
+                <div class="bg-gray-100 rounded-lg p-5">
+                    <h3 class="text-2xl font-bold">${available}</h3>
+                    <p class="text-gray-600 mt-1">Available</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg p-5">
+                    <h3 class="text-2xl font-bold">${ongoing}</h3>
+                    <p class="text-gray-600 mt-1">Ongoing</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-lg p-5">
+                    <h3 class="text-2xl font-bold">${completed}</h3>
+                    <p class="text-gray-600 mt-1">Completed</p>
+                </div>
+            </div>
+        `;
+    }
+
+    // Mobile menu
+    document.getElementById("menuBtn").addEventListener("click", function() {
         document.getElementById("mobileMenu").classList.toggle("hidden");
     });
+
+    // Newsletter
+    document.getElementById("newsletterForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("newsletterMessage").textContent =
+            "Thank you for subscribing.";
+        document.getElementById("newsletterForm").reset();
+    });
+
+    // Initial display
+    displayCourses();
+    displayConditionResults();
+    displayForLoop();
+    displayWhileLoop();
 </script>
 
 </body>

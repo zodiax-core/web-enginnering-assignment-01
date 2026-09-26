@@ -6,14 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Portal - Sign In</title>
+    <title>Student Portal - Sign Up</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.css"
-        rel="stylesheet"
-    >
 
 </head>
 
@@ -33,7 +28,7 @@
 
             <div class="hidden md:flex space-x-6">
 
-                <a href="index.html" class="text-white">Home</a>
+                <a href="/index.html" class="text-white">Home</a>
                 <a href="about.html" class="text-white">About</a>
                 <a href="contact.html" class="text-white">Contact</a>
                 <a href="signup.html" class="text-white">Sign Up</a>
@@ -62,13 +57,12 @@
 </nav>
 
 
-<!-- Sign In -->
+<!-- Sign Up -->
 <main class="min-h-screen flex items-center justify-center px-4 py-12">
 
     <div class="w-full max-w-md bg-white rounded-lg shadow p-7">
 
-
-        <!-- Flowbite Component 1: Avatar -->
+        <!-- Component 1: Icon -->
         <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full
                     flex items-center justify-center mx-auto text-2xl font-bold">
             S
@@ -76,24 +70,40 @@
 
 
         <h1 class="text-3xl font-bold text-center mt-5">
-            Sign In
+            Create Account
         </h1>
 
         <p class="text-center text-gray-600 mt-2">
-            Sign in to your account.
+            Fill in the information below.
         </p>
 
 
-        <form id="signinForm" class="mt-7 space-y-5">
+        <form id="signupForm" class="mt-7 space-y-5">
 
 
-            <!-- Flowbite Component 2: Email Input -->
+            <!-- Component 2: Input -->
             <div>
 
-                <label
-                    for="email"
-                    class="block mb-2 text-sm font-medium"
+                <label for="name" class="block mb-2 font-medium">
+                    Full Name
+                </label>
+
+                <input
+                    id="name"
+                    type="text"
+                    required
+                    minlength="2"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500"
+                    placeholder="Enter your name"
                 >
+
+            </div>
+
+
+            <!-- Component 3: Email -->
+            <div>
+
+                <label for="email" class="block mb-2 font-medium">
                     Email
                 </label>
 
@@ -101,21 +111,17 @@
                     id="email"
                     type="email"
                     required
-                    class="bg-gray-50 border border-gray-300 rounded-lg
-                           block w-full p-3 focus:ring-blue-500"
-                    placeholder="name@example.com"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500"
+                    placeholder="Enter your email"
                 >
 
             </div>
 
 
-            <!-- Flowbite Component 3: Password -->
+            <!-- Component 4: Password -->
             <div>
 
-                <label
-                    for="password"
-                    class="block mb-2 text-sm font-medium"
-                >
+                <label for="password" class="block mb-2 font-medium">
                     Password
                 </label>
 
@@ -124,68 +130,87 @@
                     type="password"
                     minlength="8"
                     required
-                    class="bg-gray-50 border border-gray-300 rounded-lg
-                           block w-full p-3 focus:ring-blue-500"
-                    placeholder="••••••••"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-blue-500"
+                    placeholder="Minimum 8 characters"
                 >
 
             </div>
 
 
-            <!-- Flowbite Component 4: Checkbox -->
-            <div class="flex items-center justify-between">
+            <!-- Component 5: Select -->
+            <div>
 
-                <label class="flex items-center gap-2 text-sm">
-
-                    <input
-                        type="checkbox"
-                        class="w-4 h-4 text-blue-600 rounded"
-                    >
-
-                    Remember me
-
+                <label for="role" class="block mb-2 font-medium">
+                    Account Type
                 </label>
 
-
-                <a
-                    href="#"
-                    class="text-sm text-blue-600 hover:underline"
+                <select
+                    id="role"
+                    required
+                    class="w-full border border-gray-300 rounded-lg p-3"
                 >
-                    Forgot Password?
-                </a>
+
+                    <option value="">
+                        Select account type
+                    </option>
+
+                    <option>
+                        Student
+                    </option>
+
+                    <option>
+                        Teacher
+                    </option>
+
+                </select>
 
             </div>
 
 
-            <!-- Flowbite Component 5: Button -->
+            <!-- Component 6: Checkbox -->
+            <div class="flex items-start">
+
+                <input
+                    id="terms"
+                    type="checkbox"
+                    required
+                    class="w-4 h-4 mt-1 text-blue-600 rounded"
+                >
+
+                <label for="terms" class="ml-2 text-sm text-gray-600">
+                    I agree to the terms and conditions.
+                </label>
+
+            </div>
+
+
+            <!-- Component 7: Button -->
             <button
                 type="submit"
-                class="w-full text-white bg-blue-600 hover:bg-blue-700
-                       focus:ring-4 focus:ring-blue-300
-                       font-medium rounded-lg text-sm px-5 py-3"
+                class="w-full bg-blue-600 text-white py-3 rounded-lg
+                       hover:bg-blue-700 font-medium"
             >
-                Sign In
+                Sign Up
             </button>
 
 
-            <!-- Alert -->
-            <div
-                id="loginMessage"
-                class="hidden p-4 text-sm text-green-800 rounded-lg bg-green-50"
+            <p
+                id="success"
+                class="hidden text-center text-green-600 text-sm"
             >
-                Sign-in form validated successfully.
-            </div>
+                Your information has been validated successfully.
+            </p>
 
 
             <p class="text-center text-sm text-gray-600">
 
-                Don't have an account?
+                Already have an account?
 
                 <a
-                    href="signup.html"
+                    href="signin.html"
                     class="text-blue-600 font-semibold hover:underline"
                 >
-                    Sign up.
+                    Sign in.
                 </a>
 
             </p>
@@ -197,20 +222,6 @@
 </main>
 
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white">
-
-    <div class="max-w-6xl mx-auto px-4 py-8 text-center">
-
-        <p class="text-gray-400">
-            © 2026 Student Portal. All rights reserved.
-        </p>
-
-    </div>
-
-</footer>
-
-
 <script>
 
 document.getElementById("menuBtn").addEventListener("click", function () {
@@ -220,18 +231,15 @@ document.getElementById("menuBtn").addEventListener("click", function () {
 });
 
 
-document.getElementById("signinForm").addEventListener("submit", function(event) {
+document.getElementById("signupForm").addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    document.getElementById("loginMessage").classList.remove("hidden");
+    document.getElementById("success").classList.remove("hidden");
 
 });
 
 </script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js"></script>
 
 </body>
 </html>
